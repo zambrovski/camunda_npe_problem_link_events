@@ -15,20 +15,16 @@ package org.camunda.bpm.unittest;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.test.Deployment;
 import org.camunda.bpm.engine.test.ProcessEngineRule;
-
-import static org.camunda.bpm.engine.test.assertions.ProcessEngineTests.*;
-
+import org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRuleBuilder;
 import org.junit.Rule;
 import org.junit.Test;
 
-/**
- * @author Daniel Meyer
- * @author Martin Schimak
- */
+import static org.camunda.bpm.engine.test.assertions.ProcessEngineTests.*;
+
 public class SimpleTestCase {
 
   @Rule
-  public ProcessEngineRule rule = new ProcessEngineRule();
+  public ProcessEngineRule rule = TestCoverageProcessEngineRuleBuilder.create().build();
 
   @Test
   @Deployment(resources = {"testProcess.bpmn"})
